@@ -20,7 +20,7 @@ async function fetchCities() {
   try {
     const response = await fetch(`${config.backendEndpoint}/cities`);
     const cities = await response.json();
-    console.log(cities);
+    //console.log(cities);
     return cities;
   } catch (e) {
     // error in cities fetch
@@ -37,7 +37,7 @@ function addCityToDOM(id, city, description, image) {
 
   let colDiv = document.createElement("div");
   let aDiv = document.createElement("a");
-  aDiv.setAttribute("href", `adventures/?city=${id}`);
+  aDiv.setAttribute("href", `pages/adventures/?city=${id}`);
 
   colDiv.className = "col-xs-6 col-sm-6 col-md-6 col-lg-3";
   aDiv.id = id;
@@ -61,7 +61,7 @@ function addCityToDOM(id, city, description, image) {
   cardBody.appendChild(desc__div);
 
   cardDiv.append(cardBody);
-  colDiv.append(cardDiv);
+  aDiv.append(cardDiv);
   colDiv.append(aDiv);
   rowDiv.append(colDiv);
 }
